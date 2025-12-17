@@ -12,6 +12,11 @@ const someOtherPlaintextPassword = 'pass123';
 app.get('/', (req, res) => {
     res.send("Hello World!");
 });
+
+app.get('/_api/package.json', (req, res) => {
+  res.json(require('./package.json'));
+});
+
 //START_ASYNC -do not remove notes, place code between correct pair of notes.
 
 
