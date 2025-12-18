@@ -23,7 +23,21 @@ app.get('/_api/package.json', (req, res) => {
 
 //START_ASYNC -do not remove notes, place code between correct pair of notes.
 
+bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(hash);
 
+    bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(res); 
+      }
+    });
+  }
+});
 
 //END_ASYNC
 
