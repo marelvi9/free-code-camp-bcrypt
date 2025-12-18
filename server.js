@@ -3,11 +3,15 @@ const express     = require('express');
 const bodyParser  = require('body-parser');
 const fccTesting  = require('./freeCodeCamp/fcctesting.js');
 const app         = express();
+const cors        = require('cors');
 const bcrypt      = require('bcrypt');
 fccTesting(app);
 const saltRounds = 12;
 const myPlaintextPassword = 'sUperpassw0rd!';
 const someOtherPlaintextPassword = 'pass123';
+
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send("Hello World!");
